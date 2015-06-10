@@ -78,6 +78,23 @@ There is one question about the installation of R packages: The packages will be
 .libPaths(c("/home/ouce-econetres/cenv0454/R", .libPaths()))
 ~~~~
 
+where `/home/ouce-econetres/cenv0454/` is my home folder.
+
+There is a problem when we install our package `perturbEcol` from `github` directly: we cannot clone the repository using below command:
+
+~~~~
+git clone https://github.com/keepsimpler/perturbEcol.git
+~~~~
+The local certificate cannot be established probably  because of the security constraints or firewall configurations of HPC. 
+A simple (but not safe) method is to delete the `ssl` verification between HPC and `github` by below command:
+
+~~~~
+git config --global http.sslVerify false
+~~~~
+
+
+
+![job status](images/qstat.png)
 
 
 ![job status](images/qstat.png)
@@ -131,6 +148,19 @@ library(igraph)
 
 <pre><code class="language-r">.libPaths(c("/home/ouce-econetres/cenv0454/R", .libPaths()))
 </code></pre>
+
+<p>where <code>/home/ouce-econetres/cenv0454/</code> is my home folder.</p>
+
+<p>There is a problem when we install our package <code>perturbEcol</code> from <code>github</code> directly: we cannot clone the repository using below command:</p>
+
+<pre><code>git clone https://github.com/keepsimpler/perturbEcol.git
+</code></pre>The local certificate cannot be established probably  because of the security constraints or firewall configurations of HPC. 
+A simple (but not safe) method is to delete the `ssl` verification between HPC and `github` by below command:
+
+<pre><code>git config --global http.sslVerify false
+</code></pre>
+
+<p><img src="images/qstat.png" alt="job status" title=""></p>
 
 <p><img src="images/qstat.png" alt="job status" title=""></p>
 <!-- content end -->
