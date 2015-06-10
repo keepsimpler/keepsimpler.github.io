@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="Keywords" content="blog"/>
+    <meta name="Description" content="blog"/>
+    <title>Simple</title>
+    <link rel="shortcut icon" href="/static/favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+</head>
+<body>
+<div class="main">
+    <div class="header">
+    	<ul id="pages">
+            <li><a href="/">home</a></li>
+            <li><a href="/#/tags">tags</a></li>
+            <li><a href="/#/archive">archive</a></li>
+    	</ul>
+    </div>
+	<div class="wrap-header">
+			<h1>
+            <a href="/" id="title"></a>
+			</h1>
+	</div>
+<div id="md" style="display: none;">
+<!-- markdown -->
+Sometimes we need to run R code on High Performance Computers. 
+For me, the case is the simulation of large ecological communities under different perturbation conditions.
+
+**1)** we need get `Username` and `Password` from the technical support group of HPC. 
+And the technical group will give the addresses of HPC resources. In my case, one of the addresses is `arcus.oerc.ox.ac.uk`.
+
+**2)** we could access HPC resources using `ssh` command:
+
+```
+ssh [Username]@arcus.oerc.ox.ac.uk
+```
+ 
+**3)** After we successfully log in, we need to use the computing power provided by HPC to complete some task or job. 
+While we can only use the computing power through by running some language code or applications. 
+The HPC of Oxford support the running of many languages and applications, including R.
+
+If we want to use R on HPC, we have to first load R into our *context*. This is implemented by `module` command:
+
+```
+module load R
+```
+
+Certainly we can list all the languages and applications provided by HPC by command:
+
+```
+module avail
+```
+
+We can also list all the loaded applications or languages by command:
+
+```
+module list
+```
+
+**4)** After we load all needed applications, we need check the executability of our code under HPC environment.
+
+For me, I need to check if the needed R packages exist. If not exist, I need to install them.
+
+~~~~{r}
+library(methods)
+library(perturbEcol)
+library(deSolve)
+library(rootSolve)
+library(plyr)
+library(igraph)
+~~~~
+
+There is one question about the installation of R packages: The packages will be installed to the folder represented by a system environment variable `R_LIBS`, while we usually don't have writing privilege to such system folder. So we need add new local library path to install new packages:
+
+~~~~{r}
+.libPaths(c("/home/ouce-econetres/cenv0454/R", .libPaths()))
+~~~~
+
+where `/home/ouce-econetres/cenv0454/` is my home folder.
+
+There is a problem when we install our package `perturbEcol` from `github` directly: we cannot clone the repository using below command:
+
+~~~~
+git clone https://github.com/keepsimpler/perturbEcol.git
+~~~~
+
+The local certificate cannot be established probably  because of the security constraints or firewall configurations of HPC. 
+A simple (but not safe) method is to delete the `ssl` verification between HPC and `github` by below command:
+
+~~~~
+git config --global http.sslVerify false
+~~~~
+
+**5)** After all the needed packages are installed, we need run R code on HPC. 
+The HPC of Oxford use [Torque Resource Manager](http://www.adaptivecomputing.com/products/open-source/torque) and [Slurm Workload Manager](http://slurm.schedmd.com/) to manage the submit and status of our R code.
+
+Suppose the R code file name is `batch.r`, and `Torque` is used. 
+We first need edit a file `submit.sh` which has below content:
+
+~~~~
+#! /bin/bash
+
+#PBS -V
+#PBS -l nodes=1
+#PBS -l walltime=100:00:00
+#PBS -N myRbatch
+
+cd $PBS_O_WORKDIR/
+
+R CMD BATCH batch.r
+~~~~
+
+Then we run below command to submit the R code for running:
+
+~~~~
+qsub submit.sh
+~~~~
+
+After the R code is submitted, we can use below command to display the status of our R job:
+
+~~~~
+qstat -u cenv0454
+~~~~
+
+![job status](images/qstat.png)
+<!-- markdown end -->
+</div>
+<div class="entry" id="main">
+<!-- content -->
+
+<!-- content end -->
+</div>
+<br>
+<br>
+    <div id="disqus_thread"></div>
+	<div class="footer">
+		<p>© Copyright 2014 by isnowfy, Designed by isnowfy</p>
+	</div>
+</div>
+<script src="main.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ["\\(", "\\)"]], processEscapes: true}});
+</script>
+<script id="content" type="text/mustache">
+    <h1>{{title}}</h1>
+    <div class="tag">
+    {{date}}
+    {{#tags}}
+    <a href="/#/tag/{{name}}">#{{name}}</a>
+    {{/tags}}
+    </div>
+</script>
+<script id="pagesTemplate" type="text/mustache">
+    {{#pages}}
+    <li>
+        <a href="{{path}}">{{title}}</a>
+    </li>
+    {{/pages}}
+</script>
+<script>
+$(document).ready(function() {
+    $.ajax({
+        url: "main.json",
+        type: "GET",
+        dataType: "json",
+        success: function(data) {
+            $("#title").html(data.name);
+            var pages = [];
+            //path
+            var path = "about.html";
+            //path end
+            var now = 0;
+            for (var i = 0; i < data.pages.length; ++i)
+                if (path == data.pages[i].path) {
+                    now = i;
+                    pages.push({"select": true, "path": data.pages[i].path, "title": data.pages[i].title});
+                }
+                else {
+                    pages.push({"select": false, "path": data.pages[i].path, "title": data.pages[i].title});
+                }
+            var pagesTemplate = Hogan.compile($("#pagesTemplate").html());
+            var pagesHtml = pagesTemplate.render({"pages": pages});
+            $("#pages").append(pagesHtml);
+            var post = data.pages[now];
+            var tmp = post.tags.split(" ");
+            var tags = [];
+            for (var i = 0; i < tmp.length; ++i)
+                if (tmp[i].length > 0)
+                    tags.push({"name": tmp[i]});
+            var contentTemplate = Hogan.compile($("#content").html());
+            var contentHtml = contentTemplate.render({"title": post.title, "tags": tags, "date": post.date});
+            $("#main").prepend(contentHtml);
+            if (data.disqus_shortname.length > 0) {
+                var disqus_shortname = data.disqus_shortname;
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            }
+        }
+    });
+});
+</script>
+</body>
+</html>
