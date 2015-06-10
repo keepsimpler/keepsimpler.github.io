@@ -72,6 +72,12 @@ library(plyr)
 library(igraph)
 ~~~~
 
+There is one question about the installation of R packages: The packages will be installed to the folder represented by a system environment variable `R_LIBS`, while we usually don't have writing privilege to such system folder. So we need add new local library path to install new packages:
+
+~~~~{r}
+.libPaths(c("/home/ouce-econetres/cenv0454/R", .libPaths()))
+~~~~
+
 
 
 ![job status](images/qstat.png)
@@ -119,6 +125,11 @@ library(deSolve)
 library(rootSolve)
 library(plyr)
 library(igraph)
+</code></pre>
+
+<p>There is one question about the installation of R packages: The packages will be installed to the folder represented by a system environment variable <code>R_LIBS</code>, while we usually don't have writing privilege to such system folder. So we need add new local library path to install new packages:</p>
+
+<pre><code class="language-r">.libPaths(c("/home/ouce-econetres/cenv0454/R", .libPaths()))
 </code></pre>
 
 <p><img src="images/qstat.png" alt="job status" title=""></p>
