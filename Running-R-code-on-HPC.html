@@ -96,8 +96,33 @@ git config --global http.sslVerify false
 **5)** After all the needed packages are installed, we need run R code on HPC. 
 The HPC of Oxford use [Torque Resource Manager](http://www.adaptivecomputing.com/products/open-source/torque) and [Slurm Workload Manager](http://slurm.schedmd.com/) to manage the submit and status of our R code.
 
+Suppose the R code file name is `batch.r`, and `Torque` is used. 
+We need first edit a file `submit.sh` which has below content:
 
+~~~~
+#! /bin/bash
 
+#PBS -V
+#PBS -l nodes=1
+#PBS -l walltime=100:00:00
+#PBS -N myRbatch
+
+cd $PBS_O_WORKDIR/
+
+R CMD BATCH batch.r
+~~~~
+
+Then we run below command to submit the R code for running:
+
+~~~~
+qsub submit.sh
+~~~~
+
+After the R code is submitted, we can use below command to display the status of our R job:
+
+~~~~
+qstat -u cenv0454
+~~~~
 
 ![job status](images/qstat.png)
 <!-- markdown end -->
@@ -166,6 +191,31 @@ A simple (but not safe) method is to delete the <code>ssl</code> verification be
 
 <p><strong>5)</strong> After all the needed packages are installed, we need run R code on HPC. 
 The HPC of Oxford use <a href="http://www.adaptivecomputing.com/products/open-source/torque">Torque Resource Manager</a> and <a href="http://slurm.schedmd.com/">Slurm Workload Manager</a> to manage the submit and status of our R code.</p>
+
+<p>Suppose the R code file name is <code>batch.r</code>, and <code>Torque</code> is used. 
+We need first edit a file <code>submit.sh</code> which has below content:</p>
+
+<pre><code>#! /bin/bash
+
+#PBS -V
+#PBS -l nodes=1
+#PBS -l walltime=100:00:00
+#PBS -N myRbatch
+
+cd $PBS_O_WORKDIR/
+
+R CMD BATCH batch.r
+</code></pre>
+
+<p>Then we run below command to submit the R code for running:</p>
+
+<pre><code>qsub submit.sh
+</code></pre>
+
+<p>After the R code is submitted, we can use below command to display the status of our R job:</p>
+
+<pre><code>qstat -u cenv0454
+</code></pre>
 
 <p><img src="images/qstat.png" alt="job status" title=""></p>
 <!-- content end -->
