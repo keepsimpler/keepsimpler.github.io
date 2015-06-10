@@ -85,6 +85,7 @@ There is a problem when we install our package `perturbEcol` from `github` direc
 ~~~~
 git clone https://github.com/keepsimpler/perturbEcol.git
 ~~~~
+
 The local certificate cannot be established probably  because of the security constraints or firewall configurations of HPC. 
 A simple (but not safe) method is to delete the `ssl` verification between HPC and `github` by below command:
 
@@ -92,9 +93,10 @@ A simple (but not safe) method is to delete the `ssl` verification between HPC a
 git config --global http.sslVerify false
 ~~~~
 
+**5)** After all the needed packages are installed, we need run R code on HPC. 
+The HPC of Oxford use [Torque Resource Manager](http://www.adaptivecomputing.com/products/open-source/torque) and [Slurm Workload Manager](http://slurm.schedmd.com/) to manage the submit and status of our R code.
 
 
-![job status](images/qstat.png)
 
 
 ![job status](images/qstat.png)
@@ -154,13 +156,16 @@ library(igraph)
 <p>There is a problem when we install our package <code>perturbEcol</code> from <code>github</code> directly: we cannot clone the repository using below command:</p>
 
 <pre><code>git clone https://github.com/keepsimpler/perturbEcol.git
-</code></pre>The local certificate cannot be established probably  because of the security constraints or firewall configurations of HPC. 
-A simple (but not safe) method is to delete the `ssl` verification between HPC and `github` by below command:
+</code></pre>
+
+<p>The local certificate cannot be established probably  because of the security constraints or firewall configurations of HPC. 
+A simple (but not safe) method is to delete the <code>ssl</code> verification between HPC and <code>github</code> by below command:</p>
 
 <pre><code>git config --global http.sslVerify false
 </code></pre>
 
-<p><img src="images/qstat.png" alt="job status" title=""></p>
+<p><strong>5)</strong> After all the needed packages are installed, we need run R code on HPC. 
+The HPC of Oxford use <a href="http://www.adaptivecomputing.com/products/open-source/torque">Torque Resource Manager</a> and <a href="http://slurm.schedmd.com/">Slurm Workload Manager</a> to manage the submit and status of our R code.</p>
 
 <p><img src="images/qstat.png" alt="job status" title=""></p>
 <!-- content end -->
