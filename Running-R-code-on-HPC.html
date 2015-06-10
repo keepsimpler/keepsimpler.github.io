@@ -37,7 +37,7 @@ And the technical group will give the addresses of HPC resources. In my case, on
 ssh [Username]@arcus.oerc.ox.ac.uk
 ```
  
-**3)** After we successfully login, we need to use the computing power provided by HPC to complete some task or job. 
+**3)** After we successfully log in, we need to use the computing power provided by HPC to complete some task or job. 
 While we can only use the computing power through by running some language code or applications. 
 The HPC of Oxford support the running of many languages and applications, including R.
 
@@ -59,6 +59,20 @@ We can also list all the loaded applications or languages by command:
 module list
 ```
 
+**4)** After we load all needed applications, we need check the executability of our code under HPC environment.
+
+For me, I need to check if the needed R packages exist. If not exist, I need to install them.
+
+~~~~{r}
+library(methods)
+library(perturbEcol)
+library(deSolve)
+library(rootSolve)
+library(plyr)
+library(igraph)
+~~~~
+
+
 
 ![job status](images/qstat.png)
 <!-- markdown end -->
@@ -76,7 +90,7 @@ And the technical group will give the addresses of HPC resources. In my case, on
 <pre><code>ssh [Username]@arcus.oerc.ox.ac.uk
 </code></pre>
 
-<p><strong>3)</strong> After we successfully login, we need to use the computing power provided by HPC to complete some task or job. 
+<p><strong>3)</strong> After we successfully log in, we need to use the computing power provided by HPC to complete some task or job. 
 While we can only use the computing power through by running some language code or applications. 
 The HPC of Oxford support the running of many languages and applications, including R.</p>
 
@@ -93,6 +107,18 @@ The HPC of Oxford support the running of many languages and applications, includ
 <p>We can also list all the loaded applications or languages by command:</p>
 
 <pre><code>module list
+</code></pre>
+
+<p><strong>4)</strong> After we load all needed applications, we need check the executability of our code under HPC environment.</p>
+
+<p>For me, I need to check if the needed R packages exist. If not exist, I need to install them.</p>
+
+<pre><code class="language-r">library(methods)
+library(perturbEcol)
+library(deSolve)
+library(rootSolve)
+library(plyr)
+library(igraph)
 </code></pre>
 
 <p><img src="images/qstat.png" alt="job status" title=""></p>
