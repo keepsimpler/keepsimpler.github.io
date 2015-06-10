@@ -29,7 +29,7 @@ Sometimes we need to run R code on High Performance Computers.
 For me, the case is the simulation of large ecological communities under different perturbation conditions.
 
 **1)** we need get `Username` and `Password` from the technical support group of HPC. 
-And the technical guy will give the addresses of HPC resources. In my case, one of the addresses is `arcus.oerc.ox.ac.uk`.
+And the technical group will give the addresses of HPC resources. In my case, one of the addresses is `arcus.oerc.ox.ac.uk`.
 
 **2)** we could access HPC resources using `ssh` command:
 
@@ -37,7 +37,29 @@ And the technical guy will give the addresses of HPC resources. In my case, one 
 ssh [Username]@arcus.oerc.ox.ac.uk
 ```
  
-**3)** After access
+**3)** After we successfully login, we need to use the computing power provided by HPC to complete some task or job. 
+While we can only use the computing power through by running some language code or applications. 
+The HPC of Oxford support the running of many languages and applications, including R.
+
+If we want to use R on HPC, we have to first load R into our *context*. This is implemented by `module` command:
+
+```
+module load R
+```
+
+Certainly we can list all the languages and applications provided by HPC by command:
+
+```
+module avail
+```
+
+We can also list all the loaded applications or languages by command:
+
+```
+module list
+```
+
+
 ![job status](images/qstat.png)
 <!-- markdown end -->
 </div>
@@ -47,15 +69,33 @@ ssh [Username]@arcus.oerc.ox.ac.uk
 For me, the case is the simulation of large ecological communities under different perturbation conditions.</p>
 
 <p><strong>1)</strong> we need get <code>Username</code> and <code>Password</code> from the technical support group of HPC. 
-And the technical guy will give the addresses of HPC resources. In my case, one of the addresses is <code>arcus.oerc.ox.ac.uk</code>.</p>
+And the technical group will give the addresses of HPC resources. In my case, one of the addresses is <code>arcus.oerc.ox.ac.uk</code>.</p>
 
 <p><strong>2)</strong> we could access HPC resources using <code>ssh</code> command:</p>
 
 <pre><code>ssh [Username]@arcus.oerc.ox.ac.uk
 </code></pre>
 
-<p><strong>3)</strong> After access
-<img src="images/qstat.png" alt="job status" title=""></p>
+<p><strong>3)</strong> After we successfully login, we need to use the computing power provided by HPC to complete some task or job. 
+While we can only use the computing power through by running some language code or applications. 
+The HPC of Oxford support the running of many languages and applications, including R.</p>
+
+<p>If we want to use R on HPC, we have to first load R into our <em>context</em>. This is implemented by <code>module</code> command:</p>
+
+<pre><code>module load R
+</code></pre>
+
+<p>Certainly we can list all the languages and applications provided by HPC by command:</p>
+
+<pre><code>module avail
+</code></pre>
+
+<p>We can also list all the loaded applications or languages by command:</p>
+
+<pre><code>module list
+</code></pre>
+
+<p><img src="images/qstat.png" alt="job status" title=""></p>
 <!-- content end -->
 </div>
 <br>
