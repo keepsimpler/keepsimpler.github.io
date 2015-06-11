@@ -30,6 +30,7 @@ If we have two parameters `alpha` and `beta`, we have two ways to code loops:
 
 
 ~~~~{r}
+# First
 alphas = 1:10
 betas = 1:10
 l_ply(alphas, function(alpha) {
@@ -40,9 +41,20 @@ l_ply(alphas, function(alpha) {
 ~~~~
 
 
-~~~~{r}
+```r
+# Second
+alphas = 1:10
+betas = 1:10
+params = expand.grid(alpha = alphas, beta = betas)
+params$id = 1:nrow(params)
+d_ply(params, .(id), function(param) {
+    print(param)
+})
+```
 
-~~~~
+First code use multiple loops to implement the traversal of the Cartesian space of multiple parameters, while second code don't need multiple loops. 
+When the dimensions of parameters are large, the second code is more genuine.
+
 <!-- markdown end -->
 </div>
 <div class="entry" id="main">
@@ -51,7 +63,8 @@ l_ply(alphas, function(alpha) {
 
 <p>If we have two parameters <code>alpha</code> and <code>beta</code>, we have two ways to code loops:</p>
 
-<pre><code class="language-r">alphas = 1:10
+<pre><code class="language-r"># First
+alphas = 1:10
 betas = 1:10
 l_ply(alphas, function(alpha) {
     l_ply(betas, function(beta) {
@@ -60,9 +73,18 @@ l_ply(alphas, function(alpha) {
 })
 </code></pre>
 
-<p>~~~~{r}</p>
+<pre><code class="r"># Second
+alphas = 1:10
+betas = 1:10
+params = expand.grid(alpha = alphas, beta = betas)
+params$id = 1:nrow(params)
+d_ply(params, .(id), function(param) {
+    print(param)
+})
+</code></pre>
 
-<p>~~~~</p>
+<p>First code use multiple loops to implement the traversal of the Cartesian space of multiple parameters, while second code don't need multiple loops. 
+When the dimensions of parameters are large, the second code is more genuine.</p>
 <!-- content end -->
 </div>
 <br>
