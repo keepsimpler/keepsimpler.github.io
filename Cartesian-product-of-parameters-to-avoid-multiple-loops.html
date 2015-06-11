@@ -25,12 +25,44 @@
 	</div>
 <div id="md" style="display: none;">
 <!-- markdown -->
+## A example
+If we have two parameters `alpha` and `beta`, we have two ways to code loops:
 
+
+~~~~{r}
+alphas = 1:10
+betas = 1:10
+l_ply(alphas, function(alpha) {
+    l_ply(betas, function(beta) {
+        print(paste(alpha, beta))
+    })
+})
+~~~~
+
+
+~~~~{r}
+
+~~~~
 <!-- markdown end -->
 </div>
 <div class="entry" id="main">
 <!-- content -->
+<h2 id="aexample">A example</h2>
 
+<p>If we have two parameters <code>alpha</code> and <code>beta</code>, we have two ways to code loops:</p>
+
+<pre><code class="language-r">alphas = 1:10
+betas = 1:10
+l_ply(alphas, function(alpha) {
+    l_ply(betas, function(beta) {
+        print(paste(alpha, beta))
+    })
+})
+</code></pre>
+
+<p>~~~~{r}</p>
+
+<p>~~~~</p>
 <!-- content end -->
 </div>
 <br>
