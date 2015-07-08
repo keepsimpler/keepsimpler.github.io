@@ -25,15 +25,41 @@
 	</div>
 <div id="md" style="display: none;">
 <!-- markdown -->
-#Rational Function
-In mathematics, a rational function is any polynomial divided by a polynomial
+##[Rational Function](https://en.wikipedia.org/wiki/Rational_function)
+In mathematics, a rational function is any polynomial divided by a polynomial, i.e. both the numerator and denominator are polynomials.
+
+A particular rational function is:
+
+$f(x) = \frac{ax+c}{bx+d}$     (1)
+
+whose numerator and denominator are both first-order polynomials, i.e. linear functions.
+
+Equation (1) is nearly linear for small values of $x$ but reaches a constant value as $x$ becomes large (an "asymptote").
+
+
+
+###Reference
+
+[A Biologist's Guide to Mathematical Modelling in Ecology and Evolution](http://press.princeton.edu/titles/8458.html)
 <!-- markdown end -->
 </div>
 <div class="entry" id="main">
 <!-- content -->
-<h1 id="rationalfunction">Rational Function</h1>
+<h2 id="rationalfunctionhttpsenwikipediaorgwikirational_function"><a href="https://en.wikipedia.org/wiki/Rational_function">Rational Function</a></h2>
 
-<p>In mathematics, a rational function is any polynomial divided by a polynomial</p>
+<p>In mathematics, a rational function is any polynomial divided by a polynomial, i.e. both the numerator and denominator are polynomials.</p>
+
+<p>A particular rational function is:</p>
+
+<p><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-587-Frame"><nobr><span class="math" id="MathJax-Span-7047" role="math" style="width: 5.846em; display: inline-block;"><span style="display: inline-block; position: relative; width: 4.728em; height: 0px; font-size: 123%;"><span style="position: absolute; clip: rect(1.527em 1000.003em 3.051em -999.997em); top: -2.487em; left: 0.003em;"><span class="mrow" id="MathJax-Span-7048"><span class="mi" id="MathJax-Span-7049" style="font-family: STIXGeneral-Italic;">f<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.155em;"></span></span><span class="mo" id="MathJax-Span-7050" style="font-family: STIXGeneral-Regular;">(</span><span class="mi" id="MathJax-Span-7051" style="font-family: STIXGeneral-Italic;">x<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mo" id="MathJax-Span-7052" style="font-family: STIXGeneral-Regular;">)</span><span class="mo" id="MathJax-Span-7053" style="font-family: STIXGeneral-Regular; padding-left: 0.307em;">=</span><span class="mfrac" id="MathJax-Span-7054" style="padding-left: 0.307em;"><span style="display: inline-block; position: relative; width: 1.629em; height: 0px; margin-right: 0.104em; margin-left: 0.104em;"><span style="position: absolute; clip: rect(3.458em 1000.003em 4.22em -999.997em); top: -4.469em; left: 50%; margin-left: -0.709em;"><span class="mrow" id="MathJax-Span-7055"><span class="mi" id="MathJax-Span-7056" style="font-size: 70.7%; font-family: STIXGeneral-Italic;">a</span><span class="mi" id="MathJax-Span-7057" style="font-size: 70.7%; font-family: STIXGeneral-Italic;">x<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mo" id="MathJax-Span-7058" style="font-size: 70.7%; font-family: STIXGeneral-Regular;">+</span><span class="mi" id="MathJax-Span-7059" style="font-size: 70.7%; font-family: STIXGeneral-Italic;">c</span></span><span style="display: inline-block; width: 0px; height: 4.017em;"></span></span><span style="position: absolute; clip: rect(3.356em 1000.003em 4.22em -999.997em); top: -3.605em; left: 50%; margin-left: -0.76em;"><span class="mrow" id="MathJax-Span-7060"><span class="mi" id="MathJax-Span-7061" style="font-size: 70.7%; font-family: STIXGeneral-Italic;">b</span><span class="mi" id="MathJax-Span-7062" style="font-size: 70.7%; font-family: STIXGeneral-Italic;">x<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mo" id="MathJax-Span-7063" style="font-size: 70.7%; font-family: STIXGeneral-Regular;">+</span><span class="mi" id="MathJax-Span-7064" style="font-size: 70.7%; font-family: STIXGeneral-Italic;">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span></span><span style="display: inline-block; width: 0px; height: 4.017em;"></span></span><span style="position: absolute; clip: rect(0.866em 1000.003em 1.222em -999.997em); top: -1.268em; left: 0.003em;"><span style="border-left-width: 1.629em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.25px; vertical-align: 0.003em;"></span><span style="display: inline-block; width: 0px; height: 1.07em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.492em;"></span></span></span><span style="border-left-width: 0.003em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.628em; vertical-align: -0.559em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-587">f(x) = \frac{ax+c}{bx+d}</script>     (1)</p>
+
+<p>whose numerator and denominator are both first-order polynomials, i.e. linear functions.</p>
+
+<p>Equation (1) is nearly linear for small values of <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-588-Frame"><nobr><span class="math" id="MathJax-Span-7065" role="math" style="width: 0.561em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.46em; height: 0px; font-size: 123%;"><span style="position: absolute; clip: rect(1.883em 1000.003em 2.645em -999.997em); top: -2.487em; left: 0.003em;"><span class="mrow" id="MathJax-Span-7066"><span class="mi" id="MathJax-Span-7067" style="font-family: STIXGeneral-Italic;">x<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.492em;"></span></span></span><span style="border-left-width: 0.003em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.691em; vertical-align: -0.059em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-588">x</script> but reaches a constant value as <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-589-Frame"><nobr><span class="math" id="MathJax-Span-7068" role="math" style="width: 0.561em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.46em; height: 0px; font-size: 123%;"><span style="position: absolute; clip: rect(1.883em 1000.003em 2.645em -999.997em); top: -2.487em; left: 0.003em;"><span class="mrow" id="MathJax-Span-7069"><span class="mi" id="MathJax-Span-7070" style="font-family: STIXGeneral-Italic;">x<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.492em;"></span></span></span><span style="border-left-width: 0.003em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.691em; vertical-align: -0.059em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-589">x</script> becomes large (an "asymptote").</p>
+
+<h3 id="reference">Reference</h3>
+
+<p><a href="http://press.princeton.edu/titles/8458.html">A Biologist's Guide to Mathematical Modelling in Ecology and Evolution</a></p>
 <!-- content end -->
 </div>
 <br>
